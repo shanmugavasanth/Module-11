@@ -3,7 +3,8 @@
 This Python program demonstrates the implementation of a **Singly Linked List** where a new element can be added at the **start** of the list.
 
 ---
-
+## NAME : Shanmuga Vasanth M
+## REG NO: 212223040191
 ## 🎯 Aim
 
 To write a Python program that adds a **new element** at the **start** of a singly linked list. The program implements a `push_front` method that inserts an element at the front of the list, followed by a method to print the list.
@@ -34,8 +35,39 @@ To write a Python program that adds a **new element** at the **start** of a sing
 ---
 
 ## Program
-Add Code Here
+~~~c
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+    def push_front(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+    def display(self):
+        if not self.head:
+            print("The list is empty.")
+            return
+        current = self.head
+        print("Singly Linked List:")
+        while current:
+            print(current.data, end=" -> " if current.next else "")
+            current = current.next
+        print()
+sll = SinglyLinkedList()
+n = int(input("Enter number of elements to insert at the start: "))
+for i in range(n):
+    value = input(f"Enter element {i + 1}: ")
+    sll.push_front(value)
+sll.display()
+~~~
 ## Sample Output
 
-## Result
+![442496774-c3036749-13e7-4177-b125-a6beac123305](https://github.com/user-attachments/assets/6a7a3932-bf95-4616-9b46-30c9cb4c0d1d)
 
+## Result
+Thus the program has been executed successfully.
