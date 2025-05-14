@@ -3,7 +3,8 @@
 This Python program demonstrates the creation and manipulation of a **Doubly Linked List** where elements can be inserted at the **end** of the list. The program also provides a method to traverse the list and display the elements.
 
 ---
-
+## NAME : Shanmuga Vasanth M
+## REG NO: 212223040191
 ## 🎯 Aim
 
 To write a Python program that:
@@ -35,9 +36,47 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-Add Code here
+~~~c
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+        new_node.prev = last_node
+    def traverse(self):
+        current_node = self.head
+        if not current_node:
+            print("The list is empty.")
+            return
+        print("Doubly Linked List:")
+        while current_node:
+            print(current_node.data, end=" <-> " if current_node.next else "")
+            current_node = current_node.next
+        print()
+dll = DoublyLinkedList()
+n = int(input("Enter the number of elements you want to insert: "))
+for i in range(n):
+    value = input(f"Enter value {i + 1}: ")
+    dll.insert_at_end(value)
+dll.traverse()
+~~~
 
 ## Sample Output
+![442496030-2263449d-f15a-4e8c-a85b-49f4939ba119](https://github.com/user-attachments/assets/3f5289e6-1044-46c3-87a8-6e5d5daf552a)
 
 ## Result
 
+Thus the program has been executed successfully.
