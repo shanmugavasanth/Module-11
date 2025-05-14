@@ -1,7 +1,8 @@
 # 📚 Singly Linked List : Find the Middle Node of a Singly Linked List Using Recursion
 
 This Python program demonstrates how to find the middle node of a singly linked list using recursion. The program calculates the middle element by utilizing two pointers, with one pointer moving one step at a time (slow) and the other moving two steps at a time (fast). When the fast pointer reaches the end of the list, the slow pointer will be at the middle node.
-
+## NAME : Shanmuga Vasanth M
+## REG NO: 212223040191
 ## 🎯 Aim
 
 To write a Python program that:
@@ -36,10 +37,50 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-Add code here
+~~~c
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new_node
+    def display(self):
+        current = self.head
+        print("Singly Linked List:")
+        while current:
+            print(current.data, end=" -> " if current.next else "")
+            current = current.next
+        print()
+def find_middle_recursive(slow, fast):
+    if not fast or not fast.next:
+        return slow
+    return find_middle_recursive(slow.next, fast.next.next)
+sll = SinglyLinkedList()
+n = int(input("Enter the number of elements in the list: "))
+for i in range(n):
+    value = input(f"Enter value {i + 1}: ")
+    sll.append(value)
+sll.display()
+if sll.head:
+    middle_node = find_middle_recursive(sll.head, sll.head)
+    print(f"\nMiddle node: {middle_node.data}")
+else:
+    print("The list is empty.")
+~~~
 
 ## Sample Input & Output
+![442496451-cddaad05-bebe-479e-9da0-df85a62ff457](https://github.com/user-attachments/assets/db511145-fd65-4363-af4e-643c56dde6e3)
 
 ## Result
-
+Thus the program has been executed successfully.
 
