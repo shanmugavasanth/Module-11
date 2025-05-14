@@ -3,7 +3,8 @@
 This project contains a simple implementation of a **singly linked list** in Python, allowing insertion and searching of elements.
 
 ---
-
+## NAME : Shanmuga Vasanth M
+## REG NO: 212223040191
 ## 🎯 Aim
 
 To write a Python program to search for a given element in a singly linked list using object-oriented programming principles.
@@ -26,8 +27,58 @@ To write a Python program to search for a given element in a singly linked list 
 ---
 
 ## 💻 Program
-Add Code Here
+~~~c
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+    def insert(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
+    def display(self):
+        if not self.head:
+            print("The list is empty.")
+            return
+        current = self.head
+        print("Singly Linked List:")
+        while current:
+            print(current.data, end=" -> " if current.next else "")
+            current = current.next
+        print()
+    def search(self, key):
+        current = self.head
+        position = 0
+        while current:
+            if current.data == key:
+                return position
+            current = current.next
+            position += 1
+        return -1
+sll = SinglyLinkedList()
+n = int(input("Enter number of elements to insert: "))
+for i in range(n):
+    value = input(f"Enter element {i + 1}: ")
+    sll.insert(value)
+sll.display()
+key = input("Enter the element to search for: ")
+position = sll.search(key)
+if position != -1:
+    print(f"The element '{key}' was found at position {position}.")
+else:
+    print(f"The element '{key}' was not found in the list.")
+~~~
 ## Sample Output
+![442496611-afe0bd42-0e01-4bbc-94e2-fced76c3db1c](https://github.com/user-attachments/assets/74438616-7c1e-49c2-9020-40d5e81f6754)
 
 ## Result
-
+Thus the program has been executed successfully.
