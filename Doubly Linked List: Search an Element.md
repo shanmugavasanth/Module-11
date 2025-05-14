@@ -3,7 +3,8 @@
 This Python program demonstrates the implementation of a **Doubly Linked List** where you can insert elements at both the beginning and the end of the list. Additionally, it allows you to search for a specific element in the list.
 
 ---
-
+## NAME : Shanmuga Vasanth M
+## REG NO: 212223040191
 ## 🎯 Aim
 
 To write a Python program that:
@@ -34,9 +35,68 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-Add Code here
+~~~c
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+        new_node.prev = last_node
+    def search(self, key):
+        current_node = self.head
+        while current_node:
+            if current_node.data == key:
+                return True
+            current_node = current_node.next
+        return False
+    def traverse(self):
+        current_node = self.head
+        if not current_node:
+            print("The list is empty.")
+            return
+        print("Doubly Linked List:")
+        while current_node:
+            print(current_node.data, end=" <-> " if current_node.next else "")
+            current_node = current_node.next
+        print()
+dll = DoublyLinkedList()
+n = int(input("Enter the number of elements you want to insert: "))
+for i in range(n):
+    value = input(f"Enter value {i + 1} to insert at the beginning: ")
+    dll.insert_at_beginning(value)
+for i in range(n):
+    value = input(f"Enter value {i + 1} to insert at the end: ")
+    dll.insert_at_end(value)
+dll.traverse()
+search_key = input("Enter the element you want to search for: ")
+if dll.search(search_key):
+    print(f"The element '{search_key}' is present in the list.")
+else:
+    print(f"The element '{search_key}' is not present in the list.")
+~~~
 
 ## Sample Output
+![442496288-9ce9e806-7a3d-45fa-ad09-20c14b754dbf](https://github.com/user-attachments/assets/85d81f6c-8311-40f7-a395-d160a506a55f)
 
 ## Result
-
+Thus the program has been executed successfully.
